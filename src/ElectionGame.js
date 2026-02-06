@@ -18,6 +18,7 @@ const ElectionGame = () => {
   const GAME_WIDTH = 500;
   const GAME_HEIGHT = 600;
   const PLAYER_SPEED = 8;
+  const VOTES_TO_WIN = 10;
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -110,7 +111,7 @@ const ElectionGame = () => {
   }, [gameStarted, gameOver, showVictoryPopup, playerPos]);
 
   useEffect(() => {
-    if (votes >= 10 && !showVictoryPopup) {
+    if (votes >= VOTES_TO_WIN && !showVictoryPopup) {
       setShowVictoryPopup(true);
     }
   }, [votes, showVictoryPopup]);
